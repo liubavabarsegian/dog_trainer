@@ -1,2 +1,13 @@
-<h1>Train#train</h1>
-<p>Find me in app/views/train/train.html.erb</p>
+<div class = "main">
+
+    <div class = "person_and_dog">
+        <%=image_tag(params[:person_picture], class: "person")%>
+        <%=image_tag(params[:dog_picture], class: "dog")%>
+    </div>
+    <div class = "commands">
+        <%= button_to "Команда \"Стоять\"", train_read_path(command: "Стоять")%>
+        <%= button_to "Команда \"Лежать\"", train_read_path(command: "Лежать")%>
+        <%= button_to "Команда \"Сидеть\"", train_read_path(command: "Сидеть")%>
+        <%= button_to "Команда \"Дай\"", train_read_path(command: "Дай")%>
+    </div>
+</div>

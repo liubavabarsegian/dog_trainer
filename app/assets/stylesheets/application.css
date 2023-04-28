@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+.main
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10%;
+}
+.person
+{
+    height: 600px;
+    
+}
+.dog
+{
+    height: 300px;
+}
