@@ -5,7 +5,7 @@ class TrainController < ApplicationController
   def change_dog_pic(action)
     case action
     when "Стоять"
-      @dog_picture = "standing.ong"
+      @dog_picture = "standing.png"
     when "Лежать"
       @dog_picture = "lying.png"
     when "Сидеть"
@@ -30,7 +30,8 @@ class TrainController < ApplicationController
     end
   end
 
-  def read
+  def refresh
+    puts params
     @command = params[:command] 
     output_signal = 'Н'
     dog_chooses_what_to_do = ["Дай", "Стоять", "Сидеть", "Лежать"].sample
@@ -42,12 +43,9 @@ class TrainController < ApplicationController
     else
       change_person_pic("Ура")
     end
-    # render action: root_path, dog_picture: @dog_picture
-    redirect_to root_path(@dog_picture, person_picture: @person_picture)
-  end
-
-  def train
-    # @dog_picture = "standing.png"
-    # @person_picture = "neutral.png"
+    sleep(3)
+    params[:person_picture] = @person_picture
+    params[:dog_picture] = @dog_picture
+    puts params
   end
 end
